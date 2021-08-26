@@ -1,24 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/list"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
         tools:itemCount="3"
-        tools:listitem="@layout/item_note"/>
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/item_note"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/create_new_note" />
 
+    <TextView
+        android:id="@+id/empty_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/note_list_is_empty"
+        android:gravity="center"
+        android:textSize="16sp"
+        android:fontFamily="sans-serif-medium"
+        android:textColor="@color/black"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/create_new_note" />
 
     <Button
         android:id="@+id/create_new_note"
         android:layout_width="match_parent"
+        android:layout_margin="16dp"
         android:layout_height="48dp"
-        android:text="@string/create_new_note" />
+        android:text="@string/create_new_note"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

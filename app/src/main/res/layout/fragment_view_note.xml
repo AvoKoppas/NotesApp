@@ -11,10 +11,10 @@
 
     </data>
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/note_item"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+        android:id="@+id/cardview"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
@@ -22,28 +22,39 @@
         android:elevation="4dp"
         app:cardCornerRadius="8dp">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="16dp">
-
             <TextView
-                style="@style/PrimaryTextStyle"
+                android:id="@+id/note_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
                 android:text="@{item.title}"
-                tools:text="This is a  title" />
+                style="@style/PrimaryTextStyle"
+                tools:text="This is a title"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
 
             <TextView
                 style="@style/SecondaryTextStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:ellipsize="end"
-                android:maxLines="1"
+                android:layout_marginTop="8dp"
                 android:text="@{item.text}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/note_title"
                 tools:text="Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old" />
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
-</layout>
+
+            <Button
+                android:id="@+id/delete_note"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="@string/delete_note"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </layout>
+

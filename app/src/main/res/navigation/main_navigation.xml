@@ -6,10 +6,14 @@
 
     <fragment
         android:id="@+id/navigation_list"
-        android:name="com.testdevlab.notesapp.ui.list.ListFragment" />
+        android:name="com.testdevlab.notesapp.ui.list.NoteListFragment" />
 
     <fragment
         android:id="@+id/navigation_create_note"
-        android:name="com.testdevlab.notesapp.ui.createnote.CreateNoteFragment" />
+        android:name="com.testdevlab.notesapp.ui.create.CreateNoteFragment" />
+
+    <fragment
+        android:id="@+id/navigation_view_note"
+        android:name="com.testdevlab.notesapp.ui.ViewNoteFragment" />
 
 </navigation>
